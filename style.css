@@ -1,0 +1,24 @@
+body {
+    padding: 0;
+}
+* {
+    box-sizing: border-box !important;
+}
+input {
+    font-size: 2em;
+    margin: 5px;
+}
+.row {
+    max-width: 100%;
+    box-sizing: border-box !important;
+    white-space: nowrap;
+}
+.row .col1{
+    width: 100%;
+}
+.row .col3{
+    width: 32%;
+}
+input[type=text] {
+    text-align: right;
+}

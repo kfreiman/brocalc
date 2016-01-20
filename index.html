@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BroCalc</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div>
+    <div class="row">
+        <input id="expression" type="text" placeholder="expression" class="col1"  value="">
+    </div>
+    <div class="row">
+        <input id="result" type="text" placeholder="result" class="col1"  value="">
+    </div>
+
+    <div class="row">
+        <input id="button_ac" type="button" class="button col3" value="AC">
+        <input id="button_plus" type="button" class="button col3" value="+">
+        <input id="button_minus" type="button" class="button col3" value="-">
+    </div>
+    <div class="row">
+        <input id="button_1" type="button" class="button button_num col3" value="1">
+        <input id="button_2" type="button" class="button button_num col3" value="2">
+        <input id="button_3" type="button" class="button button_num col3" value="3">
+    </div>
+    <div class="row">
+        <input id="button_4" type="button" class="button button_num col3" value="4">
+        <input id="button_5" type="button" class="button button_num col3" value="5">
+        <input id="button_6" type="button" class="button button_num col3" value="6">
+    </div>
+    <div class="row">
+        <input id="button_7" type="button" class="button button_num col3" value="7">
+        <input id="button_8" type="button" class="button button_num col3" value="8">
+        <input id="button_9" type="button" class="button button_num col3" value="9">
+    </div>
+    <div class="row">
+        <input id="button_0" type="button" class="button button_num col3" value="0">
+        <input id="button_dot" type="button" class="button col3" value=",">
+        <input id="button_equal" type="button" class="button col3" value="=">
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+// функция добавлюяет в инпут "expression" ту строку, которую получит в параметре sign
+function printSign(sign) {
+    // получаю ту строку, которая сейчас в инпуте
+    var current_value = document.getElementById('expression').value
+
+    // добавляю к текущему значению то, что получил в качестве аргумента, когда функция вызовется
+    var new_value = current_value + sign
+
+    // помещаю значение new_value в инпут. Это отображается в браузере
+    document.getElementById('expression').value = new_value
+}
+
+// функция выводит результат в инпут "result"
+function printResult() {
+    // беру строку из инпута "expression"
+    var str = document.getElementById('expression').value
+
+    // выполняю эту строку как js-код и результат помещаю в переменную result
+    var result = eval(str)
+
+    // помещаю значение result в инпут с id=result. Это отображается в браузере
+    document.getElementById('result').value = result
+}
+
+
+// беру элемент с id=button_1
+// и определяю что будет происходить при клике на этот элемент
+document.getElementById('button_1').addEventListener("click", function(){
+    printSign('1') // вызываю функцию printSign и передаю в неё строку, равную "1"
+})
+
+// беру элемент с id=button_equal
+// определяю что будет происходить при клике на этот элемент
+document.getElementById('button_equal').addEventListener("click", function(){
+    printResult() // вызываю функцию printResult
+})
+
+</script>
+</body>
+</html>
