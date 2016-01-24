@@ -10,10 +10,11 @@
     <div class="row">
         <input id="expression" type="text" placeholder="expression" class="col1"  value="">
     </div>
-    <div class="row">
-        <input id="result" type="text" placeholder="result" class="col1"  value="">
+        <div class="row">
+        <input id="button_DELET" type="button" class="button col3" value="DELET">
+        <input id="button_division" type="button" class="button col3" value="/">
+        <input id="button_multiply" type="button" class="button col3" value="*">
     </div>
-
     <div class="row">
         <input id="button_ac" type="button" class="button col3" value="AC">
         <input id="button_plus" type="button" class="button col3" value="+">
@@ -36,7 +37,7 @@
     </div>
     <div class="row">
         <input id="button_0" type="button" class="button button_num col3" value="0">
-        <input id="button_dot" type="button" class="button col3" value=",">
+        <input id="button_dot" type="button" class="button col3" value=".">
         <input id="button_equal" type="button" class="button col3" value="=">
     </div>
 </div>
@@ -46,6 +47,7 @@
 
 // функция добавлюяет в инпут "expression" ту строку, которую получит в параметре sign
 function printSign(sign) {
+    // sign - параметр функции
     // получаю ту строку, которая сейчас в инпуте
     var current_value = document.getElementById('expression').value
 
@@ -59,20 +61,64 @@ function printSign(sign) {
 // функция выводит результат в инпут "result"
 function printResult() {
     // беру строку из инпута "expression"
-    var str = document.getElementById('expression').value
+    var str = document.getElementById('expression').value // "1+2"
 
     // выполняю эту строку как js-код и результат помещаю в переменную result
     var result = eval(str)
-
-    // помещаю значение result в инпут с id=result. Это отображается в браузере
-    document.getElementById('result').value = result
+    
+    // помещаю значение result в инпут с id=expression. Это отображается в браузере
+    document.getElementById('expression').value = result
 }
-
 
 // беру элемент с id=button_1
 // и определяю что будет происходить при клике на этот элемент
 document.getElementById('button_1').addEventListener("click", function(){
     printSign('1') // вызываю функцию printSign и передаю в неё строку, равную "1"
+})
+document.getElementById('button_2').addEventListener("click", function(){
+    printSign('2') // вызываю функцию printSign и передаю в неё строку, равную "2"
+})
+document.getElementById('button_3').addEventListener("click", function(){
+    printSign('3')//вызываю функцию printSign и передаю в неё строку, равную "3"
+})
+document.getElementById('button_4').addEventListener("click", function(){
+    printSign('4')//вызываю функцию printSign и передаю в неё строку, равную "4"
+})
+document.getElementById('button_5').addEventListener("click", function(){
+    printSign('5')//вызываю функцию printSign и передаю в неё строку, равную "5"
+})
+document.getElementById('button_6').addEventListener("click", function(){
+    printSign('6')//вызываю функцию printSign и передаю в неё строку, равную "6"
+})
+document.getElementById('button_7').addEventListener("click", function(){
+    printSign('7')//вызываю функцию printSign и передаю в неё строку, равную "7"
+})
+document.getElementById('button_8').addEventListener("click", function(){
+    printSign('8')//вызываю функцию printSign и передаю в неё строку, равную "8"
+})
+document.getElementById('button_9').addEventListener("click", function(){
+    printSign('9')//вызываю функцию printSign и передаю в неё строку, равную "9"
+})
+document.getElementById('button_0').addEventListener("click", function(){
+    printSign('0')//вызываю функцию printSign и передаю в неё строку, равную "0"
+})
+document.getElementById('button_dot').addEventListener("click", function(){
+    printSign('.') // вызываю функцию printSign и передаю в неё строку, равную "."
+})
+document.getElementById('button_plus').addEventListener("click", function(){
+    printSign('+')//вызываю функцию printSign и передаю в неё строку, равную "+"
+})
+document.getElementById('button_minus').addEventListener("click", function(){
+    printSign('-')//вызываю функцию printSign и передаю в неё строку, равную "-"
+})
+document.getElementById('button_division').addEventListener("click", function(){
+    printSign('/')//вызываю функцию printSign и передаю в неё строку, равную "/"
+})
+document.getElementById('button_multiply').addEventListener("click", function(){
+    printSign('*')//вызываю функцию printSign и передаю в неё строку, равную "*"
+})
+document.getElementById('button_ac').addEventListener("click", function(){
+    document.getElementById('expression').value = ''
 })
 
 // беру элемент с id=button_equal
@@ -80,7 +126,12 @@ document.getElementById('button_1').addEventListener("click", function(){
 document.getElementById('button_equal').addEventListener("click", function(){
     printResult() // вызываю функцию printResult
 })
+document.getElementById('button_DELET').addEventListener("click", function(){
+  var str =  document.getElementById('expression').value
+  var newstr = str.substring(0, str.length - 1)
+  document.getElementById('expression').value = newstr
+})
 
-</script>
+ </script>
 </body>
 </html>
